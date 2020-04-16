@@ -26,6 +26,10 @@ Plugin 'VundleVim/Vundle.vim'
 " ============================
 " PLUGINS
 " ============================
+" flake8 for auto python linting
+Plugin 'nvie/vim-flake8'
+autocmd BufWritePost *.py call flake8#Flake8()
+autocmd FileType python map <buffer> <F3> :call flake8#Flake8()<CR>
 
 "NERDTREE
 " opens file tree in new left pane, shortcut: F7 (see remap section)
@@ -164,3 +168,4 @@ endfunction
 
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 highlight Comment cterm=italic
+
